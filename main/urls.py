@@ -37,7 +37,6 @@ schema_view = get_schema_view(
 )
 
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
 
@@ -48,9 +47,8 @@ urlpatterns = [
          cache_timeout=0), name='schema-swagger-ui'),
     path('redoc/', schema_view.with_ui('redoc',
          cache_timeout=0), name='schema-redoc'),
-    
-    path("accounts/", include("accounts.urls")),
 
+    path("accounts/", include("accounts.urls")),
+    path("flight/", include("flight.urls")),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-

@@ -27,7 +27,7 @@ SECRET_KEY = config("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config("DEBUG")
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv()) 
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -39,17 +39,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
-    #drf
+
+    # drf
     'rest_framework',
     'rest_framework.authtoken',
     'dj_rest_auth',
-    
+
     # swagger
     'drf_yasg',
 
-    #my apps
+    # my apps
     'accounts',
+    'flight',
 
 ]
 
@@ -144,10 +145,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')   
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')   
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 # Default primary key field type
@@ -158,11 +159,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 REST_AUTH_SERIALIZERS = {
     'TOKEN_SERIALIZER': 'accounts.serializers.CustomTokenSerializer',
 }
-    # serializer.py içerisinde CustomTokenSerializer'ı override ettik. Override işlemini yapabilmek için buraya bu ifadeyi ekledik.
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.TokenAuthentication'
     ]
 }
-    # Django Rest Framework içindeki TokenAuthentication'ı kullanmak için burada global olarak tanımladık.
