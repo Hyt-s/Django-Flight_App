@@ -5,11 +5,11 @@
 
 <div align="center">
   <h3>
-    <a href="https://{your-demo-link.your-domain}">
+    <a href="https://{your-demo-link.your-domain }">
       Demo
     </a>
      | 
-    <a href="https://{your-url-to-the-solution}">
+    <a href="https://{your-url-to-the-solution }">
       Project
     </a>
  
