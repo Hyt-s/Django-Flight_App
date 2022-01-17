@@ -61,4 +61,4 @@ $ git clone https://github.com/user-name/the-project-name
 
 ## Acknowledgements
 
-- Don't forget to add .env file (secret key and debug)
+- Don't forget to add .env file (SECRET KEY and debug)
